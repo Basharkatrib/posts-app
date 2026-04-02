@@ -1,26 +1,42 @@
 @import "tailwindcss";
+@source "../app";
+@source "../components";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* خلفية أفتح قليلاً (Slate-950 بدلاً من الأسود الصرف) */
+  --background: #0f172a; 
+  /* الحاويات والبطاقات (Slate-900) */
+  --card-bg: #1e293b;    
+  /* لون النص الثانوي */
+  --text-muted: #94a3b8;
+  /* أزرق حيوي أكثر */
+  --accent-blue: #3b82f6; 
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: #f8fafc; /* أبيض مكسور (Slate-50) أريح للعين */
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* تخصيص السكرول بار ليكون متناغماً مع الألوان الجديدة */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background); 
+}
+
+::-webkit-scrollbar-thumb {
+  /* مقبض السكرول بلون Slate-700 ليظهر بوضوح */
+  background: #334155; 
+  border-radius: 20px;
+  /* إضافة حدود شفافة تعطي إيحاء بالفراغ (Padding) حول المقبض */
+  border: 3px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* عند التمرير يصبح أفتح قليلاً (Slate-600) */
+  background: #475569; 
 }
